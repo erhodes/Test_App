@@ -1,0 +1,25 @@
+<div class="row">
+  	<div class="span6 offset3">
+	<%= form_for (@agent) do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.label :aim %>
+		<%= f.text_field :aim %>
+
+		<%= f.label :stealth %>
+		<%= f.text_field :stealth %>
+
+		<%= f.label :fortitude %>
+		<%= f.text_field :fortitude %>
+
+		<%= f.label :deception %>
+		<%= f.text_field :deception %>
+
+		<%= f.label :perception %>
+		<%= f.text_field :perception %>
+
+		<%= f.submit "Enlist New Agent"%>
+	<% end %>
+</div>
+</div>

@@ -1,3 +1,4 @@
 TestApp::Application.routes.draw do
-  root "test_pages#home"
+  root "agents#index"
+  resources :agents
 end
