@@ -5,6 +5,7 @@ class AgentsController < ApplicationController
 
 	def index
 		@agents = Agent.all
+		@missions = Mission.all
 	end
 
 	def show

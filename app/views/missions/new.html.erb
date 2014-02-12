@@ -1,0 +1,14 @@
+<%= provide(:title,'New Mission') %>
+<div class="row">
+  	<div class="span6 offset3">
+	<%= form_for (@mission) do |f| %>
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+
+		<%= f.label :duration %>
+		<%= f.text_field :duration %>
+
+		<%= f.submit "Create New Mission"%>
+	<% end %>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211031336) do
+ActiveRecord::Schema.define(version: 20140212002443) do
 
   create_table "agents", force: true do |t|
     t.string   "name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20140211031336) do
     t.integer  "fortitude"
     t.integer  "deception"
     t.integer  "perception"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "missions", force: true do |t|
+    t.string   "description"
+    t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
