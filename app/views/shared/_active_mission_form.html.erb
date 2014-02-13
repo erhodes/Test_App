@@ -1,0 +1,9 @@
+<%= form_for(@active_mission) do |f| %>
+	<%= f.label :agent_id %>
+	<%= f.text_field :agent_id %>
+
+	<%= f.label :mission_id %>
+	<%= f.text_field :mission_id %>
+
+	<%= f.submit "Dispatch Agent" %>
+<% end %>

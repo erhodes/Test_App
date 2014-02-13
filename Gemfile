@@ -31,6 +31,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'delayed_job', '~> 4.0.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

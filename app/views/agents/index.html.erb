@@ -1,10 +1,24 @@
 <%= provide(:title, 'Agents') %>
 <h1> Active Agents </h1>
 <ul class ="agents">
-	<%= render @agents %>
+	<% @agents.each do |agent| %>
+		<li>
+			<%=agent.name%> <a> test </a>
+		</li>
+	<% end %>
 </ul>
+<%= link_to "New Agent", 'agents/new' %>
 <h1> Available Missions </h1>
 <ul>
 	<%= render @missions %>
 </ul>
-<%= link_to "New Agent", 'agents/new' %>
+<%= link_to "New Mission", 'missions/new' %>
+<h1> Active Missions </h1>
+<% @active_missions.each do |am| %>
+	<li>
+		Agent ID: <%= am.agent_id%>
+		Mission Status: <%= am.status %>
+	</li>
+<% end %>
+<h2> Dispatch </h2>
+<%= render 'shared/active_mission_form' %>
