@@ -23,7 +23,8 @@
 		Agent ID: <%= am.agent_id%>
 		Mission Status: <%= am.status %>
 		<% if (am.status == "Completed") %>
-			<%=link_to 'delete', am, method: :delete %>
+			<%=link_to 'Debrief', controller: "active_missions",
+				action: "debrief", id: am, remote: true %>
 		<% end %>
 		<%=link_to 'delete', am, method: :delete, data: {confirm: "You sure?"} %>
 	</li>
