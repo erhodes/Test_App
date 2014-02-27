@@ -3,21 +3,29 @@
 <ul class ="agents">
 	<% @agents.each do |agent| %>
 		<li>
-			<%=agent.name%> <a> test </a>
+			<%= link_to agent.name, agent %>
+			<button onclick=UpdateSelectedField(<%= agent.id %>,"active_mission_agent_id") > Assign Agent </button>
 		</li>
 	<% end %>
 </ul>
 <%= link_to "New Agent", 'agents/new' %>
 <h1> Available Missions </h1>
-<ul>
-	<%= render @missions %>
-</ul>
+<% @missions.each do |mission| %>
+		<li>
+			<%=mission.description%>
+			<button onclick=UpdateSelectedField(<%= mission.id %>,"active_mission_mission_id") > Select Mission </button>
+		</li>
+	<% end %>
 <%= link_to "New Mission", 'missions/new' %>
 <h1> Active Missions </h1>
 <% @active_missions.each do |am| %>
 	<li>
 		Agent ID: <%= am.agent_id%>
 		Mission Status: <%= am.status %>
+		<% if (am.status == "Completed") %>
+			<%=link_to 'delete', am, method: :delete %>
+		<% end %>
+		<%=link_to 'delete', am, method: :delete, data: {confirm: "You sure?"} %>
 	</li>
 <% end %>
 <h2> Dispatch </h2>

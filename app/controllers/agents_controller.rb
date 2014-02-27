@@ -16,8 +16,8 @@ class AgentsController < ApplicationController
 
 	def create
 		@agent = Agent.new(agent_params)
-		if (@agent.save)
-			redirect_to 'index'
+		if @agent.save
+			redirect_to root_url
 		else
 			render 'new'
 		end

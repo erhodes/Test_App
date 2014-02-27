@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function UpdateSelectedField(x,id){
+	document.getElementById(id).value = x;
+	selectedAgent = x;
+}
