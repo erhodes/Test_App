@@ -1,14 +1,20 @@
 <%= provide(:title, 'Agents') %>
-<h1> Active Agents </h1>
-<ul class ="agents">
-	<% @agents.each do |agent| %>
-		<li>
-			<%= link_to agent.name, agent %>
-			<button onclick=UpdateSelectedField(<%= agent.id %>,"active_mission_agent_id") > Assign Agent </button>
-		</li>
-	<% end %>
-</ul>
-<%= link_to "New Agent", 'agents/new' %>
+
+<div class="row">
+<div class="col-sm-4">
+	<h1> Active Agents </h1>
+	<ul class ="agents">
+		<% @agents.each do |agent| %>
+			<li>
+				<%= link_to agent.name, agent %>
+				<button onclick=UpdateSelectedField(<%= agent.id %>,"active_mission_agent_id") > Assign Agent </button>
+			</li>
+		<% end %>
+	</ul>
+	<%= link_to "New Agent", 'agents/new' %>
+</div>
+
+<div class="col-xs-6 col-md-4">
 <h1> Available Missions </h1>
 <% @missions.each do |mission| %>
 		<li>
@@ -17,6 +23,9 @@
 		</li>
 	<% end %>
 <%= link_to "New Mission", 'missions/new' %>
+</div>
+
+<div class="col-sm-4">
 <h1> Active Missions </h1>
 <% @active_missions.each do |am| %>
 	<li>
@@ -29,5 +38,8 @@
 		<%=link_to 'delete', am, method: :delete, data: {confirm: "You sure?"} %>
 	</li>
 <% end %>
+</div>
+</div>
+
 <h2> Dispatch </h2>
 <%= render 'shared/active_mission_form' %>
