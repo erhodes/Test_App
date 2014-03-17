@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20140215032043) do
 
   create_table "agents", force: true do |t|
     t.string   "name"
-    t.integer  "aim"
+    t.integer  "combat"
     t.integer  "stealth"
-    t.integer  "fortitude"
-    t.integer  "deception"
-    t.integer  "perception"
+    t.integer  "persuasion"
+    t.integer  "wits"
+    t.integer  "max_health"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

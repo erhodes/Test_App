@@ -16,6 +16,7 @@ class ActiveMissionsController < ApplicationController
 	end
 
 	def debrief
+		##give out mission rewards and such
 		@active_mission=ActiveMission.find(params[:id])
 		@agent = Agent.find(@active_mission.agent_id)
 		@agent.update_attributes(:aim => @agent.aim+1)
