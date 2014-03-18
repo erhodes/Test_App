@@ -1,0 +1,8 @@
+<%= @mission.description %>
+<% @mission.rewards.each do |reward| %>
+	<li>
+		<%= reward.reward_type %>
+		<%= reward.amount %>
+	</li>
+<% end %>
+

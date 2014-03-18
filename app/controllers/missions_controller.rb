@@ -12,6 +12,10 @@ class MissionsController < ApplicationController
 		end
 	end
 
+	def show
+		@mission = Mission.find(params[:id])
+	end
+
 	def destory
 		Mission.find(params[:id].destroy)
 	end

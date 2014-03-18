@@ -16,9 +16,9 @@
 
 <div class="col-xs-6 col-md-4">
 <h1> Available Missions </h1>
-<% @missions.each do |mission| %>
+	<% @missions.each do |mission| %>
 		<li>
-			<%=mission.description%>
+			<%= link_to mission.description, mission%>
 			<button onclick=UpdateSelectedField(<%= mission.id %>,"active_mission_mission_id") > Select Mission </button>
 		</li>
 	<% end %>

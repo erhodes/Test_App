@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215032043) do
+ActiveRecord::Schema.define(version: 20140317210610) do
 
   create_table "active_missions", force: true do |t|
     t.integer  "agent_id"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20140215032043) do
   create_table "missions", force: true do |t|
     t.string   "description"
     t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rewards", force: true do |t|
+    t.integer  "amount"
+    t.string   "reward_type"
+    t.integer  "mission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

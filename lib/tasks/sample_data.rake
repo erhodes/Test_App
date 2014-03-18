@@ -3,6 +3,7 @@ namespace :db do
 	task populate: :environment do
 		make_agents
 		make_missions
+		make_rewards
 	end
 end
 
@@ -16,6 +17,14 @@ def make_agents
 end
 
 def make_missions
-	Mission.create!(description: "Test Mission",
+	mission = Mission.create!(description: "Test Mission",
 		duration: 10)
+end
+
+def make_rewards
+	missions = Mission.all
+	missions.each { |mission| 
+		mission.rewards.create!(amount: 1,reward_type: "combat")
+		mission.rewards.create!(amount: 1,reward_type: "stealth")
+		}
 end

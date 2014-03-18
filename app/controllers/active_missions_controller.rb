@@ -3,8 +3,9 @@ class ActiveMissionsController < ApplicationController
 		@active_mission=ActiveMission.new(active_mission_params)
 		@active_mission.status = "In Progress"
 		if @active_mission.save
-			@active_mission.delay(:run_at => 10.seconds.from_now).update_attributes(:status => "Completed")
-			@active_mission.goblue
+			##@active_mission.delay(:run_at => 10.seconds.from_now).update_attributes(:status => "Completed")
+			@active_mission.update_attributes(:status => "Completed")
+			##@active_mission.goblue
 			redirect_to root_url
 		else
 			render 'users/index'
@@ -19,7 +20,11 @@ class ActiveMissionsController < ApplicationController
 		##give out mission rewards and such
 		@active_mission=ActiveMission.find(params[:id])
 		@agent = Agent.find(@active_mission.agent_id)
-		@agent.update_attributes(:aim => @agent.aim+1)
+		@mission = Mission.find(@active_mission.mission_id)
+		##@agent.update_attributes(:combat => @agent.combat+1)
+		@mission.rewards.each do |reward|
+			@agent.update_attributes(reward.reward_type => @agent.combat+reward.amount)
+		end 
 	end
 
 	def new
